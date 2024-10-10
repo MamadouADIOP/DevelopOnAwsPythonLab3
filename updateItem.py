@@ -13,7 +13,7 @@ def main(ddbClient):
     
 
     print("\nUpdating the note flag for remediation...\n")
-    print(updateNewAttribute(ddbClient, tableName, qUserId, qNoteId))
+    # print(updateNewAttribute(ddbClient, tableName, qUserId, qNoteId))
 
     print("\nRemediating the marked note...\n")
     print(updateExistingAttributeConditionally(ddbClient, tableName, qUserId, qNoteId, notePrefix))
@@ -55,7 +55,7 @@ def updateExistingAttributeConditionally(ddbClient, tableName, qUserId, qNoteId,
     try:
         ## TODO 8: Add code to update the Notes attribute for the note that matches 
         # the passed function parameters only if the 'Is_Incomplete' attribute is 'Yes'
-        
+        notePrefix += ' 400 KB'
         
         ## End TODO 8
         response = ddbClient.update_item(

@@ -18,7 +18,9 @@ def main(ddbClient):
 def querySpecificNote(ddbClient, tableName, qUserId, qNoteId):
     ## TODO 9: Using PartiQL, add code to query for a specific note with the parameter 
     # values available for use.
-    
+    statement = f"select * from \"{tableName}\" where UserId='{qUserId}' and NoteId = {qNoteId}"
+    print(statement)
+    response = ddbClient.execute_statement(Statement=statement)
 
     
     ## End TODO 9
