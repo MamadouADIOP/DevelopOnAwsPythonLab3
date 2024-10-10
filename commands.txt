@@ -11,3 +11,9 @@ Fix user name for the commit
 git config --global user.name "Mamadou Abdoulaye DIOP"
 Fix email for the commit operations
 git config --global user.email "diop20@hotmail.com"
+Wireless network
+Zigbee network
+DynamodB link for documentation
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html
+Scan dynamodb table after loading data
+aws dynamodb scan --table-name Notes-688019587

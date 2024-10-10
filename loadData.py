@@ -31,7 +31,7 @@ def putNote(table, note):
     print("loading note " + str(note))
     ## TODO 4: Add code that uses the function parameters to 
     # add a new note to the table.
-    
+    table.put_item(Item=note)
     
     
     ## END TODO 4

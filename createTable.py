@@ -51,8 +51,8 @@ def createTable(ddbClient, tableDefinition):
             }
             ],
             ProvisionedThroughput={
-                'ReadCapacityUnits': 5,
-                'WriteCapacityUnits': 5
+                'ReadCapacityUnits': int(tableDefinition['readCapacity']),
+                'WriteCapacityUnits': int(tableDefinition['writeCapacity'])
             }
         )
 
