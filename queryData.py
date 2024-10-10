@@ -22,13 +22,9 @@ def queryNotesByPartitionKey(ddbClient, tableName, qUserId):
         ProjectionExpression='NoteId, Note',
         ExpressionAttributeValues={
             ':v1':{
-                'S':qUserId}
-            
-        },
-        KeyConditionExpression='UserId=:v1'
-        
-        )
-    
+                'S':qUserId}},
+        KeyConditionExpression='UserId=:v1')
+
     
     ## End TODO 5
     return response["Items"]

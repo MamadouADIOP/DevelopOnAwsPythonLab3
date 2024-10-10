@@ -18,9 +18,19 @@ def queryAllNotesPaginator(ddbClient, tableName, pageSize):
 
     ## TODO 6: Add code that creates a paginator and uses the printNotes function 
     # to print the items returned in each page.
+    # response=ddbClient.scan(TableName=tableName,
+    # Limit=int(pageSize))
+    # print(response)
+    paginator = ddbClient.get_paginator('scan')
+    notes=[]
+    page_iterator = paginator.paginate(TableName=tableName, Limit=int(pageSize))
+    # response = [i for i in page_iterator]
+    for page in page_iterator:
+        notes.append(page["Items"])
+    # print(response)
     
-    
-    
+    notes= [n for n in notes if len(n) != 0]
+    printNotes(notes[0])
     ## End TODO 6
 
 ## Utility methods
