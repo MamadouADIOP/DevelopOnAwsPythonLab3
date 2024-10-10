@@ -1,0 +1,7 @@
+Listing dynamodb tables
+aws dynamodb list-tables
+
+Describing dynamodb tables
+
+aws dynamodb describe-table --table-name Notes-688019587
+

@@ -29,7 +29,32 @@ def createTable(ddbClient, tableDefinition):
     ## TODO 2: Add logic to create a table with UserId as the 
     ## partition key and NoteId as the sort key
 
-
+    response = ddbClient.create_table(AttributeDefinitions=[
+        {
+            'AttributeName': tableDefinition['partitionKey'],
+            'AttributeType': 'S'
+        },
+        {
+            'AttributeName': tableDefinition['sortKey'],
+            'AttributeType': 'S'
+        }
+        ],
+        TableName=tableDefinition['tableName'],
+        KeySchema=[
+            {
+                'AttributeName':tableDefinition['partitionKey'],
+                'KeyType':'HASH'
+            },
+            {
+                'AttributeName': tableDefinition['sortKey'],
+                'KeyType': 'RANGE'
+            }
+            ],
+            ProvisionedThroughput={
+                'ReadCapacityUnits': 5,
+                'WriteCapacityUnits': 5
+            }
+        )
 
     ## End TODO 2
 
@@ -39,7 +64,8 @@ def createTable(ddbClient, tableDefinition):
 def waitForTableCreation(ddbClient, tableName):
     ## TODO 3: Add a waiter to pause the script until your new table exists
 
-    
+    waiter = ddbClient.get_waiter('table_exists')
+    waiter.wait(TableName=tableName)
 
     ## End TODO 3
 
@@ -63,7 +89,7 @@ def readConfig():
 ## TODO 1: create an Amazon DynamoDB service client to pass to the
 ## main function.
 
-
+client = boto3.client('dynamodb')
 
 ## End TODO 1
 
