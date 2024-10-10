@@ -31,7 +31,11 @@ def putNote(table, note):
     print("loading note " + str(note))
     ## TODO 4: Add code that uses the function parameters to 
     # add a new note to the table.
-    table.put_item(Item=note)
+    table.put_item(Item={'UserId': note['UserId'],
+    'Note': note['Note'],
+    'NoteId': int(note['NoteId'])
+        
+    })
     
     
     ## END TODO 4

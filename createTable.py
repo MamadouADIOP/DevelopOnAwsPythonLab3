@@ -36,7 +36,7 @@ def createTable(ddbClient, tableDefinition):
         },
         {
             'AttributeName': tableDefinition['sortKey'],
-            'AttributeType': 'S'
+            'AttributeType': 'N'
         }
         ],
         TableName=tableDefinition['tableName'],

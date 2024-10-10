@@ -24,7 +24,28 @@ def updateNewAttribute(ddbClient, tableName, qUserId, qNoteId):
     ## TODO 7: Add code to set an 'Is_Incomplete' flag to 'Yes' for the note that matches the 
     ## provided function parameters
     
-    
+    response = ddbClient.update_item(
+        ExpressionAttributeNames={
+            '#IC':'Is_Incomplete'
+        },
+        ExpressionAttributeValues={
+            ':ic':{
+                'S':'Yes'
+            }
+        },
+        Key={
+            'UserId':{
+                "S":qUserId
+            },
+            'NoteId': {
+                "N": qNoteId
+                
+            }
+        },
+        TableName=tableName,
+        UpdateExpression="SET #IC = :ic",
+        ReturnValues = 'ALL_NEW'
+        )
     
     ## End TODO 7
     return response['Attributes']
