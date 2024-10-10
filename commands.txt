@@ -17,3 +17,6 @@ DynamodB link for documentation
 https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html
 Scan dynamodb table after loading data
 aws dynamodb scan --table-name Notes-688019587
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html
