@@ -5,3 +5,9 @@ Describing dynamodb tables
 
 aws dynamodb describe-table --table-name Notes-688019587
 
+Reset commit author
+git commit --amend --reset-author
+Fix user name for the commit
+git config --global user.name "Mamadou Abdoulaye DIOP"
+Fix email for the commit operations
+git config --global user.email "diop20@hotmail.com"
